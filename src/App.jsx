@@ -1,5 +1,3 @@
-
-// import "./App.css";
 import { LeftPanel } from "./Components/leftPanel";
 import { RightPanel } from "./Components/rightPanel";
 
