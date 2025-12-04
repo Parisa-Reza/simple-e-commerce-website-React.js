@@ -1,7 +1,7 @@
 
 // import "./App.css";
-import { LeftPanel } from "./Components/leftPanel/LeftPanel";
-import { RightPanel } from "./Components/RightPanel";
+import { LeftPanel } from "./Components/leftPanel";
+import { RightPanel } from "./Components/rightPanel";
 
 function App() {
 

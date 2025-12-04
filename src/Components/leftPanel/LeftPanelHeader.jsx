@@ -1,7 +1,7 @@
-export function LeftPanelHeader(){
+export function LeftPanelHeader({ headerTitie}){
     return(
          <div>
-        <h1 className="text-6xl font-semibold">Krishti</h1>
+        <h1 className="text-6xl font-semibold">{ headerTitie}</h1>
       </div>
     )
 }

@@ -1,10 +1,12 @@
 import { FilterSection } from "./FilterSection";
-import { ProductGrid } from "../product/ProductGrid";
+import { ProductGrid } from "../product";
 import { LeftPanelHeader } from "./LeftPanelHeader";
+import { getProduct } from "../../api/services";
 
 export function LeftPanel() {
 
-//   const headerTitie="Krishti"
+  const headerTitie="Krishti";
+  const products=getProduct();
 
 //  const products = [
 //   {
@@ -68,9 +70,9 @@ export function LeftPanel() {
 
   return (
     <div className="mt-6 ml-20 w-[70%]">
-      <LeftPanelHeader />
+      <LeftPanelHeader headerTitie={ headerTitie} />
       <FilterSection />
-      <ProductGrid/>
+      <ProductGrid products={products}/>
     </div>
   );
 }
