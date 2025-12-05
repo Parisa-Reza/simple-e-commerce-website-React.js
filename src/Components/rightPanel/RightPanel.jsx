@@ -1,5 +1,6 @@
 import { useContext } from "react"
-import { CartContext } from "../../contexts/CartContext"
+import { CartContext } from "../../contexts"
+
 
 
 export function RightPanel(){
