@@ -1,6 +1,9 @@
-export function RightPanel({cart}){
+import { useContext } from "react"
+import { CartContext } from "../../App"
 
+export function RightPanel(){
 
+const {cart}=useContext(CartContext)
     return(
         <div className="flex flex-col mt-6 gap-4">
         <div className="text-4xl">Cart</div>

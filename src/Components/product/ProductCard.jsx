@@ -1,5 +1,12 @@
+import { useContext } from "react";
 import productImg from "../../assets/react.svg";
-export function ProductCard({ product, setCart }) {
+import { CartContext } from "../../App";
+
+
+export function ProductCard({ product}) {
+
+
+const {setCart}=useContext(CartContext)
 
   const clickAddToCart=()=>{
 
