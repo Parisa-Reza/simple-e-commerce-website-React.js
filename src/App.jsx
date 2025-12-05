@@ -1,20 +1,20 @@
-import { createContext, useState } from "react";
+import { CartProvider } from "./contexts/CartContext";
 import { LeftPanel } from "./Components/leftPanel";
 import { RightPanel } from "./Components/rightPanel";
 
-export const CartContext = createContext();
+// export const CartContext = createContext();
 
 function App() {
-  
-  const [cart, setCart] = useState([]);
+
+  // const [cart, setCart] = useState([]);
 
   return (
-    <CartContext.Provider value={{ cart, setCart }}>
+    <CartProvider >
       <div className="flex gap-4 mt-5">
         <LeftPanel />
         <RightPanel />
       </div>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 
