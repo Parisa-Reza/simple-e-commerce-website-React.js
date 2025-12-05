@@ -4,7 +4,7 @@ import { ProductCard } from "./ProductCard";
 
 const ProductEmptyState =()=> <h1>No product is available</h1>
 
-export function ProductGrid() {
+export function ProductGrid({setCart}) {
 const products=useProducts() // retrived product from custom hook
   return (
     <div className="flex flex-wrap gap-4">
@@ -18,8 +18,8 @@ const products=useProducts() // retrived product from custom hook
       :( products.map((product) => (
         <ProductCard
           key={product.id}
-          productName={product.name}
-          productPrice={product.price}
+         product={product}
+         setCart={setCart}
         />
       )))}
 

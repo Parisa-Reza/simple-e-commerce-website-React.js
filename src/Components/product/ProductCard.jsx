@@ -1,13 +1,18 @@
 import productImg from "../../assets/react.svg";
-export function ProductCard({ productName, productPrice }) {
+export function ProductCard({ product, setCart }) {
+
+  const clickAddToCart=()=>{
+
+    setCart ((previousState)=> [...previousState,product] )
+  }
   return (
     <div>
       <div className="flex flex-col w-[300px] border p-5 gap-4 rounded items-center justify-center">
         
           <img src={productImg} alt="product image" width={200} />
-          <p>{productName}</p>
-          <p>{`$${productPrice}`}</p>
-          <button className="bg-blue-500  text-white font-semibold rounded px-2 py-2">
+          <p>{product.name}</p>
+          <p>{`$${product.price}`}</p>
+          <button onClick={clickAddToCart} className="bg-blue-500  text-white font-semibold rounded px-2 py-2">
             Add to Cart
           </button>
         </div>

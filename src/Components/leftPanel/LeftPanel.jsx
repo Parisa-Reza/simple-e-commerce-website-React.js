@@ -3,7 +3,7 @@ import { ProductGrid } from "../product";
 import { LeftPanelHeader } from "./LeftPanelHeader";
 
 
-export function LeftPanel() {
+export function LeftPanel({setCart}) {
 
   const headerTitie="Krishti";
   // const products=getProduct();
@@ -13,7 +13,7 @@ export function LeftPanel() {
     <div className="mt-6 ml-20 w-[70%]">
       <LeftPanelHeader headerTitie={ headerTitie} />
       <FilterSection />
-      <ProductGrid/>
+      <ProductGrid setCart={setCart}/>
     </div>
   );
 }
