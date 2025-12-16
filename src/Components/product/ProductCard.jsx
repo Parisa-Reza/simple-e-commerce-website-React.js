@@ -11,17 +11,16 @@ const {clickAddToCart}=useContext(CartContext)
 
   
   return (
-    <div>
-      <div className="flex flex-col w-[300px] border p-5 gap-4 rounded items-center justify-center">
-        
-          <img src={productImg} alt="product image" width={200} />
-          <p>{product.name}</p>
-          <p>{`$${product.price}`}</p>
-          <button onClick={()=> clickAddToCart(product)} className="bg-blue-500  text-white font-semibold rounded px-2 py-2">
+    <div className="bg-white p-4 rounded shadow">
+             
+          <img className="w-full mb-4" src={productImg} alt="product image" width={100} />
+          <p className="text-lg font-semibold">{product.name}</p>
+          <p className="text-gray-700">{`$${product.price}`}</p>
+          <button onClick={()=> clickAddToCart(product)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2">
             Add to Cart
           </button>
         </div>
-      </div>
+      
     
   );
 }
