@@ -1,12 +1,19 @@
-import {  useState, useEffect } from "react";
-
-
+import { useState, useEffect } from "react";
 
 export const useFilter = (products) => {
-const [selectedFilters, setSelectedFilters] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState(products);
+  const filterButtonClick = (selectedCategory) => {
+    if (selectedFilters.includes(selectedCategory)) {
+      let updatedFilters = selectedFilters.filter(
+        (category) => category !== selectedCategory
+      );
+      setSelectedFilters(updatedFilters);
+    } else {
+      setSelectedFilters([...selectedFilters, selectedCategory]);
+    }
+  };
 
-  // Update filtered products when filters or products change
   useEffect(() => {
     displayingFilteredProducts();
   }, [selectedFilters, products]);
@@ -25,15 +32,5 @@ const [selectedFilters, setSelectedFilters] = useState([]);
     }
   };
 
-  const filterButtonClick = (selectedCategory) => {
-    if (selectedFilters.includes(selectedCategory)) {
-      let updatedFilters = selectedFilters.filter(
-        (category) => category !== selectedCategory
-      );
-      setSelectedFilters(updatedFilters);
-    } else {
-      setSelectedFilters([...selectedFilters, selectedCategory]);
-    }
-  };
   return { selectedFilters, filteredProducts, filterButtonClick };
-}
+};

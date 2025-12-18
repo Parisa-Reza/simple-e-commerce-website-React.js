@@ -7,9 +7,6 @@ const ProductEmptyState = () => <h1>No product is available</h1>;
 export function ProductGrid() {
   const { filteredProducts } = useContext(FilterContext);
 
-
-
-
   if (filteredProducts.length === 0) {
     return <ProductEmptyState />;
   }
@@ -22,6 +19,3 @@ export function ProductGrid() {
     </div>
   );
 }
-
-
-

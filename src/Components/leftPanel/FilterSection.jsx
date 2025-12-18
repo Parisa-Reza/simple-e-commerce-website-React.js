@@ -2,11 +2,9 @@ import { useContext } from "react";
 import { FilterContext } from "../../contexts/FilterContext";
 
 export function FilterSection() {
-  let productCategory = ["meat","vegetables", "soup"];
+  let productCategory = ["meat", "vegetables", "soup"];
 
   const { selectedFilters, filterButtonClick } = useContext(FilterContext);
-
-
 
   return (
     <div className="flex flex-col mt-5 mb-5 gap-4 ">
@@ -21,14 +19,6 @@ export function FilterSection() {
           </button>
         ))}
       </div>
-
     </div>
   );
-
-
-
-
-
-
-  
 }

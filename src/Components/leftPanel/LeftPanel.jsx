@@ -24,3 +24,7 @@ export function LeftPanel() {
     </div>
   );
 }
+
+
+// products from productService -> leftPanel -> FilterProvider -> FilterContext -> useFilter hook -> selectedFilters, filteredProducts, filterButtonClick 
+// used in FilterSection and ProductGrid components

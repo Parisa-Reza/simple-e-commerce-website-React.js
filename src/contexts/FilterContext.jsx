@@ -1,50 +1,11 @@
-// import { createContext, useState, useEffect } from "react";
-
 import { createContext } from "react";
 import { useFilter } from "../hooks";
 
 export const FilterContext = createContext();
 
-export const FilterProvider= ({ children, products = [] }) =>{
-    const { selectedFilters, filteredProducts, filterButtonClick } = useFilter(products);
-//   const [selectedFilters, setSelectedFilters] = useState([]);
-//   const [filteredProducts, setFilteredProducts] = useState(products);
-
-//   // Update filtered products when filters or products change
-//   useEffect(() => {
-//     displayingFilteredProducts();
-//   }, [selectedFilters, products]);
-
-//   const displayingFilteredProducts = () => {
-//     if (selectedFilters.length === 0) {
-//       setFilteredProducts([...products]);
-//     } else if (selectedFilters.length > 0) {
-//       let filteredResults = selectedFilters.map((eachFilter) => {
-//         let productsUnderOneFilter = products.filter(
-//           (product) => product.type === eachFilter
-//         );
-//         return productsUnderOneFilter;
-//       });
-//       setFilteredProducts(filteredResults.flat());
-//     }
-//   };
-
-//   const filterButtonClick = (selectedCategory) => {
-//     if (selectedFilters.includes(selectedCategory)) {
-//       let updatedFilters = selectedFilters.filter(
-//         (category) => category !== selectedCategory
-//       );
-//       setSelectedFilters(updatedFilters);
-//     } else {
-//       setSelectedFilters([...selectedFilters, selectedCategory]);
-//     }
-//   };
-
-//   const value = {
-//     selectedFilters,
-//     filteredProducts,
-//     filterButtonClick,
-//   };
+export const FilterProvider = ({ children, products}) => {
+  const { selectedFilters, filteredProducts, filterButtonClick } =
+    useFilter(products);
 
   return (
     <FilterContext.Provider
@@ -53,4 +14,4 @@ export const FilterProvider= ({ children, products = [] }) =>{
       {children}
     </FilterContext.Provider>
   );
-}
+};
