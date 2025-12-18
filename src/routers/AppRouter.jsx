@@ -15,11 +15,11 @@ const router = createBrowserRouter([
         },
         {
             path: "admin",
-            element: <div>Admin Page</div>,
+            element: <div className="text-red-700 text-2xl">Admin Page</div>,
         },
         {
             path: "login",
-            element: <div>Login Page</div>,
+            element: <div className="text-blue-700 text-2xl">Login Page</div>,
         }
     ]
   },
