@@ -57,5 +57,4 @@ npm run build    # Production build
 - Product listing with filtering  
 - Shopping cart with add/remove items  
 - Context-based state management  
-- Responsive design (MUI + Tailwind)  
 - Admin dashboard page
