@@ -1,21 +1,22 @@
-import { Box, Container } from "@mui/material";
+import { Box, Chip, Container } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import React from "react";
 import { useProducts } from "../../api/hooks";
 
 export const DashBoardPage = () => {
-    const { products, loading, error } = useProducts();
+    const { products, loading } = useProducts();
 
     const getFormatedRows = () => {
         return products.map((product) => ({
             id: product.id,
             name: product.name,
             price: `$${product.price}`,
+            category: product.type,
+
         }));
     }
   return (
     <Container>
-      <Box sx={{ height: 400, width: "100%", pt: 4 }}>
+      <Box sx={{ minHeight: 400, width: "100%", pt: 4 }}>
         <DataGrid
           columns={[
             {
@@ -25,14 +26,22 @@ export const DashBoardPage = () => {
             },
             {
               field: "name",
-              headerName: "Product name",
-              minWidth: 150,
+              headerName: "Product Name",
               flex: 1,
+              minWidth: 150,
             },
             {
               field: "price",
-              headerName: "Product price",
-              minwidth: 120,
+              headerName: "Product Price",
+              width: 130,
+            },
+             {
+              field: "category",
+              headerName: "Product Category",
+              width: 150,
+              renderCell: (category) => (
+                <Chip label={category.value} />
+              ),
             },
           ]}
           loading={loading}

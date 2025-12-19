@@ -15,7 +15,7 @@ export function getProduct() {
         // becatse the fetched data does not have id, but DataGrid needs id field 
         const productsWithId = response.data.map((product, index) => ({
           id: index + 1,
-          ...product,
+          ...product, // shallow copy, smemory references are different  and there is no nested object.
         }));
         setProducts(productsWithId);
         setLoading(0);
