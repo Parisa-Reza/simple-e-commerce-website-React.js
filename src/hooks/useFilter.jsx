@@ -16,6 +16,9 @@ export const useFilter = (products) => {
 
   useEffect(() => {
     displayingFilteredProducts();
+
+    console.log("use effect called");
+    
   }, [selectedFilters, products]);
 
   const displayingFilteredProducts = () => {

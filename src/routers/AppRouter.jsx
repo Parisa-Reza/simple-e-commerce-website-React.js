@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
 import { HomePage, PageNotFound, RootLayout } from "../pages";
+import { DashBoardPage } from "../pages/admin";
 
 const router = createBrowserRouter([
   {
@@ -15,12 +16,19 @@ const router = createBrowserRouter([
         },
         {
             path: "admin",
-            element: <div className="text-red-700 text-2xl">Admin Page</div>,
+            children: [
+             
+              {
+                    path: "profile",
+                    element: <div className="text-red-700 text-2xl">Admin Profile Page</div>,
+                },
+                {
+                    path: "dashboard",
+                    element: <DashBoardPage />,
+                }
+            ]
         },
-        {
-            path: "login",
-            element: <div className="text-blue-700 text-2xl">Login Page</div>,
-        }
+        
     ]
   },
 ],

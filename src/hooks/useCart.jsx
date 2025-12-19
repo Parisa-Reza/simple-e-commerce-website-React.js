@@ -12,5 +12,11 @@ export const useCart = () => {
     setCart((previousState) => [...previousState, product]);
   };
 
-  return { cart, clickAddToCart };
+
+
+  const removeFromCart = (productItem) => {
+   setCart(cart.filter((cartItem)=> cartItem.name !== productItem.name))
+  }
+
+  return { cart, clickAddToCart , removeFromCart};
 };

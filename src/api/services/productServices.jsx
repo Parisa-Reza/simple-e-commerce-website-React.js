@@ -12,7 +12,12 @@ export function getProduct() {
         "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json"
       )
       .then((response) => {
-        setProducts(response.data);
+        // becatse the fetched data does not have id, but DataGrid needs id field 
+        const productsWithId = response.data.map((product, index) => ({
+          id: index + 1,
+          ...product,
+        }));
+        setProducts(productsWithId);
         setLoading(0);
       })
       .catch((error) => {

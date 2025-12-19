@@ -1,23 +1,20 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
+//import AppBar from '@mui/material/AppBar';
+// import Box from '@mui/material/Box';
+// import Toolbar from '@mui/material/Toolbar';
+// import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-///////////////////////////////////
-import { Link, Navigate } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import { Badge, Typography } from '@mui/material';
+import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import {  AccountCircle, MenuIcon, SearchIcon, MailIcon, NotificationsIcon, MoreIcon, ShoppingCartIcon } from '../../common/icons';
-import { Cart } from '../cart';
-
-
-/////////////////////////////////////////////////
-
-
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MoreIcon from '@mui/icons-material/MoreVert';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -34,7 +31,6 @@ const Search = styled('div')(({ theme }) => ({
     width: 'auto',
   },
 }));
-
 
 const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2),
@@ -60,21 +56,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-
-
-
-
-////////////////////////////////////////////////////
-export const Navbar = () => {
-  const navigate = useNavigate();
-const [anchorEl, setAnchorEl] = React.useState(null);
+export default function PrimarySearchAppBar() {
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
-    React.useState(null);
+    React.useState<null | HTMLElement>(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  const handleProfileMenuOpen = (event) => {
+  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -87,12 +77,7 @@ const [anchorEl, setAnchorEl] = React.useState(null);
     handleMobileMenuClose();
   };
 
-  const routeToAdmin =(route)=>{
-    handleMenuClose();
-    navigate(route);
-  }
-
-  const handleMobileMenuOpen = (event) => {
+  const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
@@ -113,8 +98,8 @@ const [anchorEl, setAnchorEl] = React.useState(null);
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() => routeToAdmin('/admin/profile')}>Profile</MenuItem>
-      <MenuItem onClick={() => routeToAdmin('/admin/dashboard')}>Dashboard</MenuItem>
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
 
@@ -170,44 +155,27 @@ const [anchorEl, setAnchorEl] = React.useState(null);
     </Menu>
   );
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
-                      size="large"
-                      edge="start"
-                      color="inherit"
-                      aria-label="open drawer"
-                      sx={{ mr: 2 }}
-                    >
-                      <MenuIcon />
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
           </IconButton>
-
           <Typography
-                                variant="h6"
-                                noWrap
-                                component="div"
-                                sx={{ display: { xs: 'none', sm: 'block' } }}
-                              >
-                                <Link to="/">Simple E-commerce App</Link>
-
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ display: { xs: 'none', sm: 'block' } }}
+          >
+            MUI
           </Typography>
-
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -217,12 +185,13 @@ const [anchorEl, setAnchorEl] = React.useState(null);
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-
-
-
-           <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-          <Cart />
+            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+              <Badge badgeContent={4} color="error">
+                <MailIcon />
+              </Badge>
+            </IconButton>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
@@ -244,8 +213,6 @@ const [anchorEl, setAnchorEl] = React.useState(null);
               <AccountCircle />
             </IconButton>
           </Box>
-
-
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -258,16 +225,10 @@ const [anchorEl, setAnchorEl] = React.useState(null);
               <MoreIcon />
             </IconButton>
           </Box>
-
-
-
-
         </Toolbar>
       </AppBar>
-       {renderMobileMenu}
+      {renderMobileMenu}
       {renderMenu}
     </Box>
-
-   
   );
 }
