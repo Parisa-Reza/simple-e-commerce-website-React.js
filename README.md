@@ -1,16 +1,61 @@
-# React + Vite
+# E-Commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based e-commerce application with cart management, product filtering , admin dashboard.
 
-Currently, two official plugins are available:
+## Live link
+> https://parisa-reza.github.io/simple-e-commerce-website-React.js/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## React Compiler
+- **React 19** - UI framework
+- **Vite** - Build tool
+- **React Router v7** - Routing
+- **Material-UI (MUI)** - Component library
+- **Tailwind CSS** - Utility-first styling
+- **Axios** - HTTP client
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Project Structure
 
-## Expanding the ESLint configuration
+### Modules
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Components** - Reusable UI components (Navbar, ProductCard, Cart, LeftPanel)
+- **Pages** - Page-level components (HomePage, RootLayout, DashBoardPage)
+- **API** - External API integration with services and hooks
+- **Contexts** - Global state management (CartContext, FilterContext)
+- **Hooks** - Custom React hooks for business logic
+
+### Custom Hooks
+
+- **`useCart()`** - Manages cart state with add/remove functionality
+- **`useProducts()`** - Fetches and returns products from API
+- **`useFilter()`** - Handles product filtering logic
+
+### Context API
+
+- **`CartContext`** - Global cart state (cart items, addToCart, removeFromCart)
+- **`FilterContext`** - Global filter state (selectedFilters, filteredProducts)
+
+### Material-UI (MUI) Usage
+
+- `Box` - Layout wrapper
+- `Container` - Responsive container
+- `@mui/icons-material` - Icons
+- `@mui/x-data-grid` - Data grid component
+
+Styling is enhanced with Tailwind CSS classes alongside MUI components for flexible design.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev      # Start development server
+npm run build    # Production build
+```
+
+## Key Features
+
+- Product listing with filtering  
+- Shopping cart with add/remove items  
+- Context-based state management  
+- Responsive design (MUI + Tailwind)  
+- Admin dashboard page
