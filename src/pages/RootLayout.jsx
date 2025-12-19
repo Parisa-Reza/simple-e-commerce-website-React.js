@@ -11,7 +11,7 @@ export const RootLayout = () => {
           <Navbar />
           <Container>
             <Outlet />
-            <div>footer</div>
+            <footer className="text-center py-4 mt-8 text-gray-600 text-md">© 2025 E-Commerce App.</footer>
           </Container>
         </div>
       </Box>

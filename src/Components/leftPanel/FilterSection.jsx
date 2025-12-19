@@ -12,7 +12,7 @@ export function FilterSection() {
         {productCategory.map((category) => (
           <button
             onClick={() => filterButtonClick(category)}
-            className={`${selectedFilters?.includes(category) ? "font-semibold py-2 px-4 rounded mr-2 bg-red-400 text-white" : "font-semibold py-2 px-4 rounded mr-2 bg-gray-200 text-gray-800"}`}
+            className={`${selectedFilters?.includes(category) ? "font-semibold py-2 px-4 rounded mr-2 bg-red-400 text-white" : "font-semibold py-2 px-4 rounded mr-2 bg-gray-300 "}`}
             key={category}
           >
             {category}

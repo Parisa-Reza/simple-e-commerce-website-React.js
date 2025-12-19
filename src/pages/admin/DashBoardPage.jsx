@@ -47,6 +47,15 @@ export const DashBoardPage = () => {
           loading={loading}
           rows={getFormatedRows()}
           getRowId={(row) => row.id}
+
+            initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 6,
+            },
+          },
+        }}
+        pageSizeOptions={[6,12]}
         />
       </Box>
     </Container>
