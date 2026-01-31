@@ -1,6 +1,6 @@
-# E-Commerce App
+# E-Commerce App frontend
 
-A modern React-based e-commerce application with cart management, product filtering , admin dashboard.
+A simple React-based e-commerce application with cart management, product filtering , admin dashboard.
 
 ## Live link
 > https://parisa-reza.github.io/simple-e-commerce-website-React.js/
